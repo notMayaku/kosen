@@ -32,7 +32,7 @@ public class PhilosopherCM extends Thread
     }
 
     private void thinking(){ //思考中
-        System.out.println(binary[0] + " " + binary[1] + " philosopher" + id + " is thinking");
+        System.out.println(System.currentTimeMillis() + " " + binary[0] + " " + binary[1] + " philosopher" + id + " is thinking");
         try{
             sleep(1000); //1s考える
         } catch (InterruptedException e){}
@@ -40,7 +40,7 @@ public class PhilosopherCM extends Thread
 
     private void eating(){ //食事中
         state[id] = EATING;
-        System.out.println(binary[0] + " " + binary[1] + " philosopher" + id + " is eating");
+        System.out.println(System.currentTimeMillis() + " " + binary[0] + " " + binary[1] + " philosopher" + id + " is eating");
         try{
             sleep(5000); //3s食事する
         } catch (InterruptedException e){}
@@ -52,7 +52,7 @@ public class PhilosopherCM extends Thread
         } catch (InterruptedException e){}
         state[id] = HUNGRY;
         oneToBinary(id, 0);
-        System.out.println(binary[0] + " " + binary[1] + " philosopher" + id + " is hungry");
+        System.out.println(System.currentTimeMillis() + " " + binary[0] + " " + binary[1] + " philosopher" + id + " is hungry");
         test(id);
         mutex1.release();
 
@@ -71,7 +71,6 @@ public class PhilosopherCM extends Thread
         state[id] = EATING;
         twoToBinary(id);
         mutex1.release();
-        System.out.println(id);
         takeLeftFork();
         takeRightFork();
     }
@@ -99,7 +98,7 @@ public class PhilosopherCM extends Thread
            leftFork.acquire();
         } catch (InterruptedException e){}
         oneToBinary((id+1)%N, 1);
-        System.out.println(binary[0] + " " + binary[1] + " Philosopher" + id + " take fork" + (id+1)%N + "(left)");
+        System.out.println(System.currentTimeMillis() + " " + binary[0] + " " + binary[1] + " Philosopher" + id + " take fork" + (id+1)%N + "(left)");
     }
   
     public void takeRightFork(){
@@ -107,19 +106,19 @@ public class PhilosopherCM extends Thread
           rightFork.acquire();
        } catch (InterruptedException e){}
        oneToBinary(id, 1);
-       System.out.println(binary[0] + " " + binary[1] + " Philosopher" + id + " take fork" + id + "(right)");
+       System.out.println(System.currentTimeMillis() + " " + binary[0] + " " + binary[1] + " Philosopher" + id + " take fork" + id + "(right)");
     }
   
     public void putLeftFork(){
        leftFork.release();
        zeroToBinary((id+1)%N, 1);
-       System.out.println(binary[0] + " " + binary[1] + " philosopher" + id + " put fork" + (id+1)%N + "(left)");
+       System.out.println(System.currentTimeMillis() + " " + binary[0] + " " + binary[1] + " philosopher" + id + " put fork" + (id+1)%N + "(left)");
     }
   
     public void putRightFork(){
        rightFork.release();
        zeroToBinary(id, 1);
-       System.out.println(binary[0] + " " + binary[1] + " philosopher" + id + " put fork" + id + "(right)");
+       System.out.println(System.currentTimeMillis() + " " + binary[0] + " " + binary[1] + " philosopher" + id + " put fork" + id + "(right)");
     }
 
     private void twoToBinary(int i){
