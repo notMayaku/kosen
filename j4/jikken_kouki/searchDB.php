@@ -25,7 +25,6 @@
    </form>
    <br>
    <?php
-		echo "<br>";
 		if(!empty($_POST['searchWord'])){
 			$searchWord = $_POST['searchWord'];
 			$sort = $_POST['sort'];
@@ -57,7 +56,6 @@
 		else{
 			print("検索したい企業名を入力してください");
 		}
-		echo "<br>";
    ?>
 </body>
 </html>
