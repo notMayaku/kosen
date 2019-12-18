@@ -37,20 +37,22 @@
             	$company[] = new Company($row['code'], $row['name'], $row['address'], $row['phone'], $row['labors']);
          	}
 				echo "企業数：" . htmlspecialchars(count($company), ENT_QUOTES, 'UTF-8') . "件\n<br>\n";
-	         echo "<table>\n";
-         	echo "<tr>\n";
-      	   echo "<th>企業コード</th><th>企業名</th><th>所在地</th><th>電話番号</th><th>従業員数</th>\n";
-   	      echo "<tr>\n";
-	         foreach($company as $row){
-         	   echo "<tr>\n";
-      	      echo "<td>" . htmlspecialchars($row->getCode(), ENT_QUOTES, 'UTF-8') . "</td>\n";
-   	         echo "<td>" . htmlspecialchars($row->getName(), ENT_QUOTES, 'UTF-8') . "</td>\n";
-	            echo "<td>" . htmlspecialchars($row->getAddress(), ENT_QUOTES, 'UTF-8') . "</td>\n";
-            	echo "<td>" . htmlspecialchars($row->getPhone(), ENT_QUOTES, 'UTF-8') . "</td>\n";
-         	   echo "<td>" . htmlspecialchars($row->getLabors(), ENT_QUOTES, 'UTF-8') . "</td>\n";
-      	      echo "</tr>\n";
-   	      }
-	         echo "</table>\n";
+				if(count($company) != 0){
+	   	      echo "<table>\n";
+   	      	echo "<tr>\n";
+	      	   echo "<th>企業コード</th><th>企業名</th><th>所在地</th><th>電話番号</th><th>従業員数</th>\n";
+   	      	echo "<tr>\n";
+	      	   foreach($company as $row){
+      	   	   echo "<tr>\n";
+   	   	      echo "<td>" . htmlspecialchars($row->getCode(), ENT_QUOTES, 'UTF-8') . "</td>\n";
+	   	         echo "<td>" . htmlspecialchars($row->getName(), ENT_QUOTES, 'UTF-8') . "</td>\n";
+	            	echo "<td>" . htmlspecialchars($row->getAddress(), ENT_QUOTES, 'UTF-8') . "</td>\n";
+            		echo "<td>" . htmlspecialchars($row->getPhone(), ENT_QUOTES, 'UTF-8') . "</td>\n";
+         		   echo "<td>" . htmlspecialchars($row->getLabors(), ENT_QUOTES, 'UTF-8') . "</td>\n";
+      		      echo "</tr>\n";
+   		      }
+		         echo "</table>\n";
+				}
 			}
 		}
 		else{
