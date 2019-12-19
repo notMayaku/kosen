@@ -4,11 +4,9 @@ public class DeadLock{
    public static final int N = 5;
    private Semaphore leftFork;
    private Semaphore rightFork;
-   private int id;
 
    public DeadLock(int id, Semaphore rightFork, Semaphore leftFork)
    {
-       this.id = id;
        this.leftFork  = leftFork;
        this.rightFork = rightFork;
    }
