@@ -1,0 +1,11 @@
+th, td{
+	border: solid 1px;
+}
+
+th, td:nth-of-type(5){
+	text-align: right;
+}
+
+table{
+	border-collapse: collapse;
+}
