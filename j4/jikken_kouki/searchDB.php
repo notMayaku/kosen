@@ -2,6 +2,7 @@
 <html lang="ja">
 <head>
    <meta charset="UTF-8">
+	<link href="style.css" rel="stylesheet" type="text/css">
    <title>検索・表示画面</title>
 </head>
 <body>
@@ -48,7 +49,7 @@
 	   	         echo "<td>" . htmlspecialchars($row->getName(), ENT_QUOTES, 'UTF-8') . "</td>\n";
 	            	echo "<td>" . htmlspecialchars($row->getAddress(), ENT_QUOTES, 'UTF-8') . "</td>\n";
             		echo "<td>" . htmlspecialchars($row->getPhone(), ENT_QUOTES, 'UTF-8') . "</td>\n";
-         		   echo "<td>" . htmlspecialchars($row->getLabors(), ENT_QUOTES, 'UTF-8') . "</td>\n";
+         		   echo "<td>" . htmlspecialchars(number_format($row->getLabors()), ENT_QUOTES, 'UTF-8') . "</td>\n";
       		      echo "</tr>\n";
    		      }
 		         echo "</table>\n";
