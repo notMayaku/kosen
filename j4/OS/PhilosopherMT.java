@@ -64,6 +64,7 @@ class Fork {
 	// Žè‚É‚Æ‚ç‚ê‚é
 	public void pick(int id) {
       state[id] = HUNGRY;
+      System.out.println(id + " is hungry");
       test(id);
       if(state[id] != EATING){
          self[id].wait(id);
