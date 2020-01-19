@@ -63,6 +63,7 @@ public class SystemConstitution{
       ArrayList<String> work = new ArrayList<String>();
       ArrayList<String> xList = new ArrayList<String>();
       ArrayList<String> yList = new ArrayList<String>();
+      String str = "";
       
       if(x == 1){
          xList.add("R");
@@ -96,8 +97,10 @@ public class SystemConstitution{
       else{
          for(int xi = 0; xi < xList.size(); xi++){
             for(int yi = 0; yi < yList.size(); yi++){
-               list.add("(" + xList.get(xi) + ")+(" + yList.get(yi) + ")");
-               list.add("(" + xList.get(xi) + ")*(" + yList.get(yi) + ")");
+               str = "(" + xList.get(xi) + ")+(" + yList.get(yi) + ")";
+               list.add(str.replace("(R)", "R"));
+               str = "(" + xList.get(xi) + ")*(" + yList.get(yi) + ")";
+               list.add(str.replace("(R)", "R"));
             }
          }
       }
